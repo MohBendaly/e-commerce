@@ -1,0 +1,101 @@
+/* Conteneur principal */
+.products-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #ec2c2c;
+}
+
+/* Grille des produits (responsive) */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Carte produit – hauteur uniforme */
+.product-card {
+  background: rgb(244, 225, 225);
+  border-radius: 16px;
+  padding: 35px 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+  height: 100%; 
+  width: 80%; /* force toutes les cartes à la même hauteur dans la grille */
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;;
+  max-height: fit-content;
+  object-fit: cover;
+  border-radius: 12px;
+  background-color: #f0f0f0; 
+  margin-bottom: 10px;
+  display: block;
+}
+
+.product-card h3 {
+  margin: 10px 0 5px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.product-card p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.category, .stock {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #e67e22;
+  margin: 10px 0;
+}
+
+/* Bouton – positionné en bas de la carte */
+button {
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  padding: 10px 20px;   /* réduit de 20px 80px à 10px 20px */
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+  margin-top: auto;     /* pousse le bouton vers le bas */
+}
+
+button:hover {
+  background-color: #303f9f;
+}
+
+/* Responsive pour petits écrans */
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 15px;
+  }
+}

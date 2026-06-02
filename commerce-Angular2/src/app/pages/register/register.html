@@ -1,0 +1,33 @@
+<div class="register-container">
+  <div class="register-card">
+    <h2>Inscription</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-field">
+          <input formControlName="nom" placeholder="Nom" />
+        </div>
+        <div class="form-field">
+          <input formControlName="prenom" placeholder="Prénom" />
+        </div>
+      </div>
+
+      <div class="form-field">
+        <input formControlName="email" type="email" placeholder="Email" />
+      </div>
+
+      <div class="form-field">
+        <input formControlName="password" type="password" placeholder="Mot de passe" />
+      </div>
+
+      <div class="form-field">
+        <input formControlName="role" placeholder="Rôle" />
+      </div>
+
+      <button type="submit" [disabled]="isSubmitting">
+        {{ isSubmitting ? 'Enregistrement...' : 'S'inscrire' }}
+      </button>
+    </form>
+    <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+  </div>
+</div>

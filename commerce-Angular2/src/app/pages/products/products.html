@@ -1,0 +1,39 @@
+<div class="products-container">
+  <a routerLink="/CartItems" class="cart-link">🛒 Panier</a>
+  <h2>Liste des produits ({{ products.length }})</h2>
+
+  <div *ngIf="loading" class="loading">
+    <p>
+  DEBUG: products = {{ products | json }}<br>
+  loading = {{ loading }}<br>
+  error = {{ error }}
+</p>
+    <p>Chargement des produits...</p>
+  </div>
+
+  <div *ngIf="error" class="error">
+    <p>{{ error }}</p>
+    <button (click)="loadProducts()">Réessayer</button>
+  </div>
+
+  <!-- Affichage des produits -->
+  <div  *ngIf="!loading && !error && products.length === 0">
+    <p>Aucun produit trouvé.</p>
+  </div>
+
+  <div *ngIf="!loading && !error && products.length > 0" class="products-grid">
+    <div *ngFor="let product of products" class="product-card">
+    
+      <img [src]="'/assets/produits/' + product.imageUrl" 
+           alt="{{ product.nom }}"
+           class="product-image"
+           onerror="this.style.display='none'">
+      <h3>{{ product.nom }}</h3>
+      <p>{{ product.description }}</p>
+      <p class="price">{{ product.prix }} €</p>
+      <p>Stock: {{ product.quantite }}</p>
+      <button (click)="addToCart({ ...product, id: product.id ?? product.produitId ?? 1 })">
+        Ajouter au panier</button>
+    </div>
+  </div>
+</div>

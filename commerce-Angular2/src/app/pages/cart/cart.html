@@ -1,0 +1,21 @@
+<div class="cart-container">
+  <h2>Mon panier</h2>
+  <div>Debug : {{ cartItems?.length }}</div>
+  
+  <table class="cart-table" *ngIf="cartItems?.length > 0">
+    <thead>
+      <tr><th>Image</th><th>Nom</th><th>Prix</th><th>Qté</th><th>Total</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartItems">
+       <td><img [src]="'/assets/produits/' + (item.produit?.imageUrl ?? 'default.jpg')"></td>
+        <td>{{ item.produit?.nom }}</td>
+        <td>{{ item.produit?.prix }} €</td>
+        <td>{{ item.quantite }}</td>
+        <td>{{ item.total }} €</td>
+       <button (click)="removeItem(item.id)">Supprimer</button>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="cartItems?.length === 0">Panier vide</div>
+</div>

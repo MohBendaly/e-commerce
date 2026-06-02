@@ -1,0 +1,52 @@
+<header class="home-header">
+  <nav class="toolbar">
+    <div class="toolbar-brand">Commerce</div>
+    <div class="toolbar-links">
+      <a *ngFor="let link of navLinks" [routerLink]="link.route" routerLinkActive="active">{{ link.label }}</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>{{ heroTitre }}</h1>
+  <p class="hero-subtitle">{{ heroSousTitre }}</p>
+  <button class="hero-button" [routerLink]="heroBoutonRoute">{{ heroBoutonTexte }}</button>
+</section>
+
+<section class="search-bar">
+  <div class="search-container">
+    <input type="text" 
+           [(ngModel)]="searchQuery" 
+           [placeholder]="searchPlaceholder"
+           (keyup.enter)="onSearch()" />
+    <button (click)="onSearch()" class="search-btn">Chercher</button>
+  </div>
+</section>
+
+<section class="categories">
+  <h2>Catégories</h2>
+  <div class="category-list">
+    <div *ngFor="let cat of filteredCategories" class="category-card">
+      <p>{{ cat.titre }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="search-results" *ngIf="searchQuery">
+  <h2>Résultats de recherche</h2>
+  <div *ngIf="filteredProducts.length > 0; else noProductsFound" class="product-list">
+    <div *ngFor="let product of filteredProducts" class="product-card">
+      <img [src]="'/assets/produits/' + product.imageUrl" alt="{{ product.nom }}" />
+      <h3>{{ product.nom }}</h3>
+      <p>{{ product.description }}</p>
+      <p class="price">{{ product.prix }} €</p>
+    </div>
+  </div>
+  <ng-template #noProductsFound>
+    <p class="no-results">Aucun produit trouvé pour "{{ searchQuery }}".</p>
+  </ng-template>
+</section>
+
+<footer class="home-footer">
+  <p>© 2026 Commerce - Votre boutique en ligne</p>
+</footer>
