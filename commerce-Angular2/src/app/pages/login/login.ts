@@ -3,6 +3,7 @@ import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { HeaderComponent } from '../../components/header/header';
 
 
 @Component({
@@ -12,9 +13,10 @@ import { HttpClient } from '@angular/common/http';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    HeaderComponent,
   ],
   templateUrl: './login.html',
-  styleUrls: ['./login.css'],
+  styleUrls: ['./login.css']
 })
 export class login implements OnInit {
   public apiUrl = 'http://localhost:8080/api/auth/login';

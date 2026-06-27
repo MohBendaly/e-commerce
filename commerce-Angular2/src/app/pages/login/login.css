@@ -1,52 +1,80 @@
+
+/* === Même structure que register === */
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background: #f0f2f5;
+  padding: 1rem;
+  margin: 0;
 }
 
-.login-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  width: 100%;
-  max-width: 400px;
+.login-card { 
+  width: 430px;
+  height: 300px;
+  padding: 3.5rem 63px;
+  border-radius: 20px;
+  background-color: #adeaf5;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-.form-group {
+.login-card h2 {
+  text-align: center;
   margin-bottom: 1rem;
+  margin-top: 0; /* Supprime la marge négative pour une meilleure cohérence et éviter les chevauchements */
+  color: #333;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-.form-group input {
+.form-field {
   width: 100%;
-  padding: 0.5rem;
+  margin-bottom: 0.6rem;
+  margin-top: 0.2rem; 
+}
+
+.form-field input {
+  width: 100%;
+  padding: 16px 16px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 50px;
+  margin-left:0px;
+  font-size: 1rem;
+  background-color: white;
+  transition: 0.2s;
+  box-sizing: border-box;
 }
 
-button {
-  width: 100%;
-  padding: 0.5rem;
-  background: #3f51b5;
+.form-field input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px hsl(200, 30%, 38%);
+}
+
+button[type="submit"] {
+  width: 90%; 
+  display: block; 
+  padding: 8px; 
+  font-size: 1rem; 
+  margin-top: 1.3rem; 
+  margin-left: auto; 
+  margin-right: auto; 
+  border-radius: 35px;
+  background-color: hsl(211, 28%, 34%);
   color: white;
   border: none;
-  border-radius: 4px;
+  font-weight: bold;
   cursor: pointer;
+  transition: 0.2s;
 }
 
-button:disabled {
-  background: #ccc;
+button[type="submit"]:hover {
+  background-color: hsl(200, 30%, 38%);
+  transform: translateY(-2px);
 }
 
 .error {
-  color: red;
+  color: #e74c3c;
   text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
 }

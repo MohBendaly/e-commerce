@@ -3,11 +3,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from '../../components/header/header';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, HttpClientModule, RouterModule], 
+  imports: [ReactiveFormsModule, CommonModule, HttpClientModule, RouterModule, HeaderComponent], 
   templateUrl: './register.html',
   styleUrls: ['./register.css']
 })

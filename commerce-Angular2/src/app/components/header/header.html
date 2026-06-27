@@ -1,0 +1,17 @@
+<header class="home-header">
+  <nav class="toolbar">
+    <div class="toolbar-brand">Commerce</div>
+    <div class="toolbar-links">
+      <ng-container *ngFor="let link of displayedLinks">
+        <a [routerLink]="link.route"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }">
+          {{ link.label }}
+        </a>
+      </ng-container>
+    </div>
+    <div class="toolbar-actions">
+      <button *ngIf="isLogin" (click)="logout()" class="btn-logout">Déconnexion</button>
+    </div>
+  </nav>
+</header>

@@ -1,22 +1,19 @@
+<app-header></app-header>
+
 <div class="login-container">
   <div class="login-card">
     <h2>Connexion</h2>
     <form [formGroup]="form" (ngSubmit)="submit()">
-      
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" formControlName="email" placeholder="exemple@email.com">
+      <div class="form-field">
+        <input formControlName="email" type="email" placeholder="Email" />
       </div>
 
-      <div class="form-group">
-        <label>Mot de passe</label>
-        <input type="password" formControlName="password">
+      <div class="form-field">
+        <input formControlName="password" type="password" placeholder="Mot de passe" />
       </div>
 
-      <p *ngIf="error" class="error">{{ error }}</p>
-
+      <p class="error-message" *ngIf="error">{{ error }}</p>
       <button type="submit" [disabled]="form.invalid">Se connecter</button>
-
     </form>
   </div>
 </div>

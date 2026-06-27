@@ -1,21 +1,44 @@
-<div class="cart-container">
-  <h2>Mon panier</h2>
-  <div>Debug : {{ cartItems?.length }}</div>
-  
-  <table class="cart-table" *ngIf="cartItems?.length > 0">
-    <thead>
-      <tr><th>Image</th><th>Nom</th><th>Prix</th><th>Qté</th><th>Total</th><th>Action</th></tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of cartItems">
-       <td><img [src]="'/assets/produits/' + (item.produit?.imageUrl ?? 'default.jpg')"></td>
-        <td>{{ item.produit?.nom }}</td>
-        <td>{{ item.produit?.prix }} €</td>
-        <td>{{ item.quantite }}</td>
-        <td>{{ item.total }} €</td>
-       <button (click)="removeItem(item.id)">Supprimer</button>
-      </tr>
-    </tbody>
-  </table>
-  <div *ngIf="cartItems?.length === 0">Panier vide</div>
+<div class="cart-page">
+  <app-header></app-header>
+
+  <div class="cart-container">
+    <p class="cart-count">{{ cartItems.length }} article(s)</p>
+
+    <div *ngIf="cartItems.length === 0" class="empty-cart">
+      <p>Votre panier est vide.</p>
+      <a routerLink="/produit/all" class="btn-continue">Continuer mes achats</a>
+    </div>
+
+    <div *ngIf="cartItems.length > 0">
+      <div class="cart-grid">
+        <div *ngFor="let item of cartItems" class="cart-card">
+          <img [src]="'/assets/produits/' + item.produit.imageUrl" 
+               alt="{{ item.produit.nom }}"
+               class="cart-image">
+          <div class="cart-details">
+            <h3>{{ item.produit.nom }}</h3>
+            <p class="price">{{ item.produit.prix }} €</p>
+            <div class="quantity-control">
+              <button (click)="updateQuantity(item.id, item.quantite - 1)" [disabled]="item.quantite <= 1">-</button>
+              <span>{{ item.quantite }}</span>
+              <button (click)="updateQuantity(item.id, item.quantite + 1)">+</button>
+            </div>
+            <p class="total-line">Total: {{ item.total }} €</p>
+          </div>
+          <button (click)="removeItem(item.id)" class="btn-remove">🗑️ Supprimer</button>
+        </div>
+      </div>
+
+      <div class="cart-summary">
+        <div *ngFor="let item of cartItems">
+         <p>Total article : {{ item.total }} €</p>
+        </div>
+        <div class="total">Total général : <strong>{{ total }} €</strong></div>
+        <div class="cart-actions">
+          <button (click)="clearCart()" class="btn-clear">Vider le panier</button> 
+          <button (click)="checkout()" class="btn-checkout">Passer la commande</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

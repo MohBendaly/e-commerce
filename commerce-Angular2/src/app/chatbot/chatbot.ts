@@ -3,10 +3,11 @@ import { ChatService } from '../services/chatservice';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ViewEncapsulation } from '@angular/core';
+import { HeaderComponent } from '../components/header/header';
 @Component({
   selector: 'app-chat',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, HeaderComponent],
   templateUrl: './chatbot.html',
   styleUrls: ['./chatbot.css'],
   encapsulation: ViewEncapsulation.None

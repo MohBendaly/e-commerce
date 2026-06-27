@@ -1,75 +1,77 @@
 /* Conteneur principal */
-.products-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+.home-header {
+  background-color: #1a73e8;
+  color: #ffffff;
+  padding: 1.25rem 1.25rem;
 }
-
-h2 {
+h2{
+  margin: 1rem 0.5rem;
+  font-size: 1.8rem;
   text-align: center;
-  margin-bottom: 30px;
-  color: #ec2c2c;
+  color: hsl(0, 93%, 49%);
 }
 
 /* Grille des produits (responsive) */
 .products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px; 
+  align-items: center; 
 }
 
-/* Carte produit – hauteur uniforme */
 .product-card {
-  background: rgb(244, 225, 225);
-  border-radius: 16px;
-  padding: 35px 30px;
-  margin-left: 20px;
-  margin-right: 20px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
+  width: 300px;  
+  height: 500px;           
+  display: flex; /* Ajout pour utiliser Flexbox */
+  flex-direction: column; /* Organise les éléments en colonne */
+  justify-content: space-between; /* Espace les éléments pour que le bouton soit en bas */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 40px 30px;
+  margin-bottom: 20px;
   text-align: center;
-  height: 100%; 
-  width: 80%; /* force toutes les cartes à la même hauteur dans la grille */
+  background: hwb(0 91% 4%); /* Couleur de fond plus neutre */
+  box-shadow: 0 2px 5px lch(76.55% 31.84 22.23 / 0.896);
+  transition: transform 0.2s;
 }
 
 .product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .product-image {
   width: 100%;
-  height: 200px;;
-  max-height: fit-content;
+  max-width: 100%;
+  height: 200px;
   object-fit: cover;
   border-radius: 12px;
-  background-color: #f0f0f0; 
-  margin-bottom: 10px;
+  background-color: #f0f0f0;
+  margin-bottom: 0.8rem;
   display: block;
 }
 
 .product-card h3 {
-  margin: 10px 0 5px;
+  margin: 12px 0 8px;
   font-size: 1.2rem;
   color: #333;
 }
 
 .product-card p {
-  margin: 5px 0;
-  color: #666;
-  font-size: 0.9rem;
+  margin: 8px 0;
+  color: #745252;
+  font-size: 1.3rem;
 }
 
 .category, .stock {
-  font-size: 0.85rem;
-  color: #888;
+  font-size: 1rem;
+  color: hsl(0, 18%, 50%);
 }
 
 .price {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #e67e22;
   margin: 10px 0;
@@ -80,16 +82,17 @@ button {
   background-color: #3f51b5;
   color: white;
   border: none;
-  padding: 10px 20px;   /* réduit de 20px 80px à 10px 20px */
+  padding: 10px 30px;   /* réduit de 20px 80px à 10px 20px */
   border-radius: 25px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   transition: background-color 0.2s;
-  margin-top: auto;     /* pousse le bouton vers le bas */
+  margin-top: auto; /* Le bouton se placera en bas de l'espace disponible */
 }
 
 button:hover {
   background-color: #303f9f;
+   
 }
 
 /* Responsive pour petits écrans */

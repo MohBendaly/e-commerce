@@ -1,12 +1,4 @@
-<header class="home-header">
-  <nav class="toolbar">
-    <div class="toolbar-brand">Commerce</div>
-    <div class="toolbar-links">
-      <a *ngFor="let link of navLinks" [routerLink]="link.route" routerLinkActive="active">{{ link.label }}</a>
-    </div>
-  </nav>
-</header>
-
+<app-header></app-header>
 <section class="hero">
   <h1>{{ heroTitre }}</h1>
   <p class="hero-subtitle">{{ heroSousTitre }}</p>
@@ -23,11 +15,17 @@
   </div>
 </section>
 
-<section class="categories">
-  <h2>Catégories</h2>
-  <div class="category-list">
-    <div *ngFor="let cat of filteredCategories" class="category-card">
-      <p>{{ cat.titre }}</p>
+<section class="categories-section">
+  <div class="container">
+    <h2 class="section-title">Catégories</h2>
+    <div class="categories-grid">
+      <div class="category-card" *ngFor="let cat of filteredCategories">
+  <h3>{{ cat.titre }}</h3>
+  <p>{{ cat.description }}</p>
+  <span class="product-count">{{ cat.produits?.length || 0 }} produits</span>
+  
+  <button class="btn-category" (click)="filterByCategory(cat.id, cat.produits)">Explorer →</button>
+</div>
     </div>
   </div>
 </section>
@@ -36,7 +34,7 @@
   <h2>Résultats de recherche</h2>
   <div *ngIf="filteredProducts.length > 0; else noProductsFound" class="product-list">
     <div *ngFor="let product of filteredProducts" class="product-card">
-      <img [src]="'/assets/produits/' + product.imageUrl" alt="{{ product.nom }}" />
+      <img [src]="'/assets/produits/' + product.imageUrl" [alt]="product.nom" />
       <h3>{{ product.nom }}</h3>
       <p>{{ product.description }}</p>
       <p class="price">{{ product.prix }} €</p>
