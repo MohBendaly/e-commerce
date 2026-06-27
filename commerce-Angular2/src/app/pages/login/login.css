@@ -1,0 +1,80 @@
+
+/* === Même structure que register === */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f0f2f5;
+  padding: 1rem;
+  margin: 0;
+}
+
+.login-card { 
+  width: 430px;
+  height: 300px;
+  padding: 3.5rem 63px;
+  border-radius: 20px;
+  background-color: #adeaf5;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.login-card h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 0; /* Supprime la marge négative pour une meilleure cohérence et éviter les chevauchements */
+  color: #333;
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 0.6rem;
+  margin-top: 0.2rem; 
+}
+
+.form-field input {
+  width: 100%;
+  padding: 16px 16px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  margin-left:0px;
+  font-size: 1rem;
+  background-color: white;
+  transition: 0.2s;
+  box-sizing: border-box;
+}
+
+.form-field input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px hsl(200, 30%, 38%);
+}
+
+button[type="submit"] {
+  width: 90%; 
+  display: block; 
+  padding: 8px; 
+  font-size: 1rem; 
+  margin-top: 1.3rem; 
+  margin-left: auto; 
+  margin-right: auto; 
+  border-radius: 35px;
+  background-color: hsl(211, 28%, 34%);
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: hsl(200, 30%, 38%);
+  transform: translateY(-2px);
+}
+
+.error {
+  color: #e74c3c;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}

@@ -1,0 +1,38 @@
+@import '@angular/material/prebuilt-themes/azure-blue.css';
+
+.chat-header p {
+  background: #faf5f5 !important;
+  color: #5607f4 !important;
+  font-size: 60px !important;
+  width: 500px !important;
+  margin: 20px auto !important;
+  text-align: center !important;
+  border: 5px solid hwb(188 49% 9%) !important;
+}
+
+.chat-message {
+  background: #f0f0f0;
+  color: #333;
+  padding: 30px 40px;
+  margin: 20px;
+  border-radius: 10px;
+  max-width: 100%;
+}
+
+chat-input-area {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  font-size: 40px;
+  width: 100%;
+  margin: 40px auto;
+}
+
+.user-message, 
+.bot-message {
+  font-size: 18px;  
+}
+
+.chat-messages div[class*="message"] {
+  font-size: 18px;
+}

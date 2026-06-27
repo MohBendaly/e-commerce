@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<div class="chat-window">
+  <header class="chat-header">
+    <div class="chat-title">
+      <span class="chat-icon">🤖</span>
+      <div>
+        <h2>Chatbot IA</h2>
+      </div>
+    </div>
+  </header>
+
+  <section class="chat-messages" #chatContainer>
+    <div *ngFor="let msg of messages" class="message" [ngClass]="{user: msg.role === 'user', assistant: msg.role === 'assistant'}">
+      <div class="message-avatar">{{ msg.role === 'assistant' ? '🤖' : '👤' }}</div>
+      <div class="message-bubble">
+        <p>{{ msg.content }}</p>
+      </div>
+    </div>
+
+    <div *ngIf="isLoading" class="message assistant">
+      <div class="message-avatar">🤖</div>
+      <div class="message-bubble loading">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="chat-input-area">
+    <input [(ngModel)]="userInput"
+           (keyup.enter)="send()"
+           placeholder="Posez votre question à Ollama..."
+           [disabled]="isLoading">
+    <button (click)="send()" [disabled]="isLoading">
+      {{ isLoading ? 'Envoi...' : 'Envoyer' }}
+    </button>
+  </footer>
+</div>

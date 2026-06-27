@@ -1,0 +1,19 @@
+.logout-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #ff6b6b;
+  font-weight: 500;
+}
+
+.logout-btn:hover {
+  text-decoration: underline;
+}
+.toolbar {
+  display: flex;
+  align-items: right;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #1a73e8;
+  color: white;
+}
