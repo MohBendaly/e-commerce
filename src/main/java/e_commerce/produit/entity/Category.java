@@ -1,24 +1,26 @@
 package e_commerce.produit.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import java.util.ArrayList;
 import java.util.List;
 
-
-@Data
 @Entity
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "categories")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int  id;
+    Long  id;
     String nom;
     String description;
-    @OneToMany(mappedBy = "category")
-    List<Produit> produits;
+    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    List<Produit> produits = new ArrayList<>();
+
 
 }

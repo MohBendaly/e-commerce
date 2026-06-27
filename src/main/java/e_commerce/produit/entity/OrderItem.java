@@ -1,11 +1,11 @@
 package e_commerce.produit.entity;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 
 @Entity
 @Data
@@ -15,12 +15,17 @@ import lombok.NoArgsConstructor;
 public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-      int id;
-      int quantite;
-      int prix;
-      String status;
+    private Long id;
+
+    private int quantite;
+    private BigDecimal prix; // Corrected to 'price' and BigDecimal type
+    private String status;
+
     @ManyToOne
-      Produit produit;
+    @JoinColumn(name = "produit_id")
+    private Produit produit;
+
     @ManyToOne
-      Order order;
+    @JoinColumn(name = "order_id")
+    private Order order;
 }

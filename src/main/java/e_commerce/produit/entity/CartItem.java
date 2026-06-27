@@ -1,6 +1,7 @@
 package e_commerce.produit.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +20,11 @@ public class CartItem {
     String status;
     double total;
     @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "cart_id", nullable = false) // Changed to nullable = false
     Cart cart;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "produit_id")
     Produit produit;
+
 }

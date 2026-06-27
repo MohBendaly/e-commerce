@@ -2,7 +2,7 @@ package e_commerce.produit.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import e_commerce.produit.entity.User;
-
+import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
@@ -12,7 +12,14 @@ public interface UserRepository extends JpaRepository<User, Long> {
         return null;
     }
 
-    User findByEmail(String email) ;
+     Optional<User> findByEmail(String email);
 
-      Optional<User> findById(Long id);
+    Optional<User> findById(Long id);
+
+    Optional<User> findByPassword(String password);
+
+    List<User> findAllByEmail(String email);
 }
+
+
+

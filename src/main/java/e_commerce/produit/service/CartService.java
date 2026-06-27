@@ -26,9 +26,12 @@ public class CartService {
         return cartRepository.save(Cart);
     }
 
-    public List<Cart> updateCart(Long id, Cart cart) {return cartRepository.saveAll(List.of(cart));
+    public Cart updateCart(Long id, Cart cart) {
+        cart.setId(id); // Assurez-vous d'avoir un setId() dans votre entité Cart
+        return cartRepository.save(cart);
     }
 
     public void deleteCart(Long id) {
+        cartRepository.deleteById(id);
     }
 }

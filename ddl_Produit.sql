@@ -11,4 +11,4 @@ CREATE TABLE produit
 );
 
 ALTER TABLE produit
-    ADD CONSTRAINT FK_PRODUIT_ON_CATEGORY FOREIGN KEY (category_id) REFERENCES category (id);
+    ADD CONSTRAINT FK_PRODUIT_ON_CATEGORY FOREIGN KEY (category_id) REFERENCES pg_settings.category (id);

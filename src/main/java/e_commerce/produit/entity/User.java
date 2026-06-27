@@ -1,10 +1,9 @@
 package e_commerce.produit.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import java.util.List;
 
 @Entity
 @Data
@@ -14,14 +13,9 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    String nom;
-    String prenom;
-    String email;
-    String password;
-    String role;
-    @OneToMany(mappedBy = "user")
-    List<Order> orders;
-    @OneToOne
-    Cart cart;
+    private Long id;
+
+    private String email;
+    private String password;
+    // Ajoutez vos autres champs ici (nom, prenom, etc.)
 }

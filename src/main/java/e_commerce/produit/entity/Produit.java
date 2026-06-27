@@ -1,18 +1,18 @@
 package e_commerce.produit.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
-
+import java.util.ArrayList;
 import java.util.List;
 
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "produits")
 public class Produit {
     @Id
@@ -22,17 +22,15 @@ public class Produit {
     String description;
     double prix;
     int quantite;
+    @Column(name = "image_url")
+    private String imageUrl;
+
     @OneToMany(mappedBy = "produit")
-    List<OrderItem> orderItems;
+    @JsonIgnore
+    List<OrderItem> orderItems = new ArrayList<>();
     @ManyToOne
-    Category category;
+    @JoinColumn(name = "category_id",nullable = true)
+    @JsonIgnore
+    private Category category;
 
-    public void setCategorie(String categorie) {
-    }
-
-    public void setImage(String image) {
-    }
 }
-
-
-

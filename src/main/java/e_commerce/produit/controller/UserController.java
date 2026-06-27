@@ -1,5 +1,6 @@
 package e_commerce.produit.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import e_commerce.produit.entity.User;
 import e_commerce.produit.service.UserService;
@@ -8,7 +9,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-
+    @Autowired
     private final UserService userService;
 
     public UserController(UserService userService) {

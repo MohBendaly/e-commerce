@@ -4,9 +4,11 @@ package e_commerce.produit.controller;
 import org.springframework.web.bind.annotation.*;
 import e_commerce.produit.entity.Cart;
 import e_commerce.produit.service.CartService;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/cart")
 public class CartController {
 
@@ -34,7 +36,7 @@ public class CartController {
 
     @PutMapping("/update")
     List<Cart> updateCart(@PathVariable Long id, @RequestBody Cart Cart) {
-        return cartService.updateCart(id, Cart);
+        return Collections.singletonList(cartService.updateCart(id, Cart));
     }
 
 
